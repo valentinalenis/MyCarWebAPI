@@ -12,7 +12,8 @@ namespace MyCarWebAPI.Models
     public class Car
     {
         [BsonId]
-        public ObjectId id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
 
         public string Consecutivo { get; set; }
 

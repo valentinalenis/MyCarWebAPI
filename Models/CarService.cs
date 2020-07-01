@@ -23,7 +23,7 @@ namespace MyCarWebAPI.Models
             _database.Find(car => true).ToList();
 
         public Car Get(string id) =>
-            _database.Find<Car>(book => book.Consecutivo == id).FirstOrDefault();
+            _database.Find<Car>(car => car.id == id).FirstOrDefault();
 
         public Car Create(Car car)
         {
@@ -32,7 +32,7 @@ namespace MyCarWebAPI.Models
         }
 
         public void Update(string id, Car carIn) =>
-            _database.ReplaceOne(car => car.Consecutivo == id, carIn);
+            _database.ReplaceOne(car => car.id == id, carIn);
 
         public void Remove(Car carIn) =>
             _database.DeleteOne(car => car.Consecutivo == carIn.Consecutivo);

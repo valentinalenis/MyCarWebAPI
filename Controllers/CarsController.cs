@@ -23,7 +23,7 @@ namespace MyCarWebAPI.Controllers
         public ActionResult<List<Car>> Get() =>
             _carService.Get();
 
-        [HttpGet("{id:length(1)}", Name = "GetCar")]
+        [HttpGet("{id}", Name = "GetCar")]
         public ActionResult<Car> Get(string id)
         {
             var car = _carService.Get(id);
@@ -41,10 +41,10 @@ namespace MyCarWebAPI.Controllers
         {
             _carService.Create(car);
 
-            return CreatedAtRoute("GetBook", new { Consecutivo = car.Consecutivo.ToString() }, car);
+            return CreatedAtRoute("GetCar", new { Consecutivo = car.Consecutivo.ToString() }, car);
         }
 
-        [HttpPut("{id:length(1)}")]
+        [HttpPut("{id}")]
         public IActionResult Update(string id, Car carIn)
         {
             var car = _carService.Get(id);
@@ -59,17 +59,17 @@ namespace MyCarWebAPI.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:length(1)}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            var book = _carService.Get(id);
+            var car = _carService.Get(id);
 
-            if (book == null)
+            if (car == null)
             {
                 return NotFound();
             }
 
-            _carService.Remove(book.Consecutivo);
+            _carService.Remove(car.Consecutivo);
 
             return NoContent();
         }
