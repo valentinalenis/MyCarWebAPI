@@ -9,7 +9,7 @@ using MyCarWebAPI.Models;
 namespace MyCarWebAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CarsController : ControllerBase
     {
         private readonly CarService _carService;
