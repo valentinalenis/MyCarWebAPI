@@ -38,7 +38,7 @@ namespace MyCarWebAPI.Models
             _database.DeleteOne(car => car.Consecutivo == carIn.Consecutivo);
 
         public void Remove(string id) =>
-            _database.DeleteOne(car => car.Consecutivo == id);
+            _database.DeleteOne(car => car.id == id);
     }
 
 }

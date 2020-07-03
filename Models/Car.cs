@@ -17,9 +17,9 @@ namespace MyCarWebAPI.Models
 
         public string Consecutivo { get; set; }
 
-        public float Value { get; set; }
+        public float Valor { get; set; }
        
-        public string Details { get; set; }
+        public string Detalle { get; set; }
       
         public float Trm { get; set; }
     }

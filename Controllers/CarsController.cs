@@ -41,7 +41,7 @@ namespace MyCarWebAPI.Controllers
         {
             _carService.Create(car);
 
-            return CreatedAtRoute("GetCar", new { Consecutivo = car.Consecutivo.ToString() }, car);
+            return CreatedAtRoute("GetCar", new { Consecutivo = car.id }, car);
         }
 
         [HttpPut("{id}")]
@@ -69,7 +69,7 @@ namespace MyCarWebAPI.Controllers
                 return NotFound();
             }
 
-            _carService.Remove(car.Consecutivo);
+            _carService.Remove(car.id);
 
             return NoContent();
         }
